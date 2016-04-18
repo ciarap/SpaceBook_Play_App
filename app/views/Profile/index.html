@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Profile' /}
+
+<nav class="ui inverted menu">
+  <header class="header item"> Spacebook </header>
+  <div class="right menu">
+    <a class="item" href="/home">Home</a></li>
+    <a class="item" href="/members">Members</a>
+    <a class="active item" href="/profile">Profile</a>
+    <a class="item" href="/blog">Blog</a>    
+   <div class="ui simple dropdown item">
+    Account Settings
+    <i class="dropdown icon"></i>
+    <div class="menu">
+        <a class="item" href="/logout">Logout</a>
+         <a class="item" href="/editprofile">Edit Profile</a>
+         </div>
+         </div>
+  </div>
+</nav> 
+
+<h1 class="ui inverted teal block header" >${user.firstName} ${user.lastName}'s Profile</h1>
+<section class="ui  two column grid segment">
+  <div class="row">
+    <div class="column">
+      #{include "components/profileimages.html" /} 
+    </div>
+    <div class="column">
+      #{include "components/statusupdate.html" /}   
+    </div>
+  </div>
+</section>

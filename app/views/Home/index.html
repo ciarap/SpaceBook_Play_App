@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<nav class="ui inverted menu">
+  <header class="header item"> Spacebook </header>
+  <div class="right menu">
+    <a class="active item" href="/home">Home</a></li>
+    <a class="item" href="/members">Members</a>
+    <a class="item" href="/profile">Profile</a>
+    <a class="item" href="/blog">Blog</a>
+    <div class="ui simple dropdown item">
+    Account Settings
+    <i class="dropdown icon"></i>
+    <div class="menu">
+        <a class="item" href="/logout">Logout</a>
+         <a class="item" href="/editprofile">Edit Profile</a>
+         </div>
+         </div>
+  </div>
+</nav> 
+
+<h1 class="ui inverted teal block header" >${user.firstName} ${user.lastName}</h1>
+<section class="ui two column grid segment">
+
+  <div class="column ">
+    <div class="ui row">
+      #{include "components/friends.html" /} 
+    </div>
+    <div class="row">
+     <div class="ui medium image">
+    <label class="ui ribbon label">Profile Image</label>
+    <img src="/profile/getpicture/${user.id}">
+  </div>  
+  <section class="ui raised form segment">
+    <form action="/profile/uploadpicture/${user.id}" method="post" enctype="multipart/form-data">     
+      <div class="ui field">
+        <input type="file" name="picture">  </input> 
+     </div>     
+     <button class="ui blue submit button"> Upload</button>       
+    </form>        
+  </section>
+  </div>
+     <div class="ui row">
+      #{include "components/statusupdate.html" /}   
+    </div>
+    </div>
+    <div class="ui column">
+      #{include "components/messages.html" /} 
+    </div>
+    
+  
+</section>
+
+
+ 
