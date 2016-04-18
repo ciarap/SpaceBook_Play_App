@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.jpa.Model;
+import play.Logger;
 import play.db.jpa.Blob;
 
 @Entity
@@ -18,7 +19,7 @@ public class User extends Model
   public String email;
   public String password;
   public String statusText;
- 
+  public boolean online=false;
   public Blob   profilePicture;
   public Blob   thumbnailPicture;
   public int    age;
@@ -89,5 +90,19 @@ public class User extends Model
     to.inbox.add(message);
     message.save();
   }  
+  
+
+  
+  public String isOnline(){
+	  if(online){
+	  return "Online";
+	  }
+	  else if (!online){
+		  return "Offline";
+	  }
+	  else return "error";
+  }
+  
+ 
   
 }

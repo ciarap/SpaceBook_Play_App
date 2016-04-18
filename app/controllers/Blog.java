@@ -22,9 +22,8 @@ public class Blog  extends Controller
     
     Post post = new Post (title, content);
     post.save();
-    user.posts.add(post);
+    user.posts.add(0,post);
     user.save();
-    
     Logger.info ("title:" + title + " content:" + content);
     index();
   }

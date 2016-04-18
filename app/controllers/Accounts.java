@@ -19,7 +19,10 @@ public class Accounts extends Controller
 
   public static void logout()
   {
-	
+	String userId = session.get("logged_in_userid");
+    User user = User.findById(Long.parseLong(userId));
+	user.online=false;
+	user.save();
     session.clear();
     index();
   }
@@ -36,6 +39,7 @@ public class Accounts extends Controller
     {
       String userId = session.get("logged_in_userid");
       user = User.findById(Long.parseLong(userId));
+     
     }
     else
     {
@@ -61,7 +65,8 @@ public class Accounts extends Controller
     {
       Logger.info("Authentication successful");
       session.put("logged_in_userid", user.id);
-      
+      user.online=true;
+      user.save();
       Home.index();
     }
     else

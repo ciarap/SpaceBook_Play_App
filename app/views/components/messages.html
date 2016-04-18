@@ -6,6 +6,8 @@
         <tr>
           <th>From</th>
           <th></th>
+          <th>Online Status</th>
+          <th></th>
           <th>Message</th>
         </tr>
       </thead>
@@ -13,13 +15,23 @@
         #{list items:user.inbox, as:'message'}
           <tr>
             <td>
-              <div class="ui small image ">
-                <img src="/profile/getpicture/${message.from.id}">
+              <div class="ui avatar image">
+               <img src="/profile/getpicture/${message.from.id}">
               </div>
             </td>
             <td>
                <a href="/publicprofile/${message.from.id}"> ${message.from.firstName}</a> 
+
              
+             </td>
+             <td>
+             #{if message.from.isOnline()=="Online"}
+              <i class="user green icon"></i>
+             #{/if}
+             #{else}
+              <i class="user red icon"></i>
+              #{/else}
+              ${message.from.isOnline()}
              </td>
              <td> 
                 ${message.messageText}
