@@ -1,0 +1,59 @@
+#{extends 'main.html' /} #{set title:'Public Blog Post' /}
+
+#{if currentUser==user}
+<nav class="ui inverted menu">
+	<div class="left menu">
+		<a class="item" href="/home">Home</a> 
+		 <a class="item" href="/blog">Back to Blog HomePage</a>
+	</div>
+</nav>
+#{/if}
+#{else}
+<nav class="ui inverted menu">
+	<div class="left menu">
+		<a class="item" href="/home">Home</a> <a class="item"
+			href="/publicprofile/${user.id}">${user.firstName}'s Profile</a> <a
+			class="item" href="/publicblog/${user.id}">${user.firstName}'s
+			Blog Posts</a>
+
+	</div>
+</nav>
+#{/else}
+
+<section>
+	<h5 class="ui inverted green block header">${post.title}</h5>
+
+	<p>${post.content}</p>
+
+	<div class="ui comments">
+		<h5 class="ui dividing header">Comments</h5>
+		#{ list items:post.comments, as:'comment'}
+		<div class="comment">
+			<div class="content">
+				<a href="/publicprofile/${comment.from.id}">${comment.from.firstName}</a>
+				<div class="metadata">
+					<div class="date">${comment.date}</div>
+				</div>
+				<div class="text">
+					<p>${comment.comment}</p>
+				</div>
+			</div>
+		</div>
+		#{/list} 
+		#{if session.contains("logged_in_userid")} 
+		   #{if currentUser== user} 
+		   <a href="/blog/deletepost/${post.id}" class="ui button red labeled icon"><i class="icon delete"></i> Delete </a>
+		   #{/if} 
+		   #{if currentUser!= user}
+             <p>#{include "components/createBlogComment.html" /}</p>
+		  #{/if} 
+		  #{/if} 
+		 #{if !session.contains("logged_in_userid")}
+		<div class="ui green floating message">
+			<p>
+				<a href="/login"><i class="pointing right icon"></i>Log in</a> to
+				leave comments on this blog!
+			</p>
+		</div>
+		#{/if}
+</section>

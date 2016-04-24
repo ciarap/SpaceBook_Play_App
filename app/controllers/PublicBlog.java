@@ -27,11 +27,12 @@ public class PublicBlog extends Controller
 	    post.postComment(user, comment, date.toString());
 	    post.save();
 	    Logger.info ("The post:"+postid+"user: "+user.firstName+"comment: "+comment+ "date: "+ date);
-	    visit(id);
+	    blogPostPage(postid,id);
   }
 
   public static void getPicture(Long id) 
   {
+	
     User user = User.findById(id);
     Blob picture = user.profilePicture;
     if (picture.exists())
@@ -39,6 +40,17 @@ public class PublicBlog extends Controller
       response.setContentTypeIfNotSet(picture.type());
       renderBinary(picture.get());
     }
+  }
+  
+  public static void blogPostPage(Long postid,Long id){
+	  User currentUser=null;
+	  if (session.contains("logged_in_userid")){
+	  currentUser= Accounts.getLoggedInUser();
+	  }
+	  Logger.info("ssss"+postid);
+	  User user = User.findById(id);
+	  Post post=Post.findById(postid);
+	  render(post,user,currentUser);
   }
   
  

@@ -11,42 +11,10 @@
 </nav>
 
 <h1 class="ui inverted teal block header">${user.firstName}
-	${user.lastName}'s Blog</h1>
+	${user.lastName}'s Blog Posts</h1>
 <section class="ui  segment">
 
 
-	<h4 class="ui inverted blue block header">Published Posts</h4>
-	#{ list items:user.posts, as:'post'}
-	<div class="ui raised segment">
-		<h5 class="ui inverted green block header">${post.title}</h5>
-		<p>${post.content}</p>
-
-		<div class="ui comments">
-			<h5 class="ui dividing header">Comments</h5>
-			#{ list items:post.comments, as:'comment'}
-			<div class="comment">
-				<div class="content">
-					<a href="/publicprofile/${comment.from.id}">${comment.from.firstName}</a>
-					<div class="metadata">
-						<div class="date">${comment.date}</div>
-					</div>
-					<div class="text">
-						<p>${comment.comment}</p>
-					</div>
-				</div>
-			</div>
-			#{/list}
-			 #{if session.contains("logged_in_userid")}
-			<p>#{include "components/createBlogComment.html" /}</p>
-			#{/if}
-			#{if !session.contains("logged_in_userid")}
-			<div class="ui green floating message">
-  				<p><a href="/login"><i class="pointing right icon"></i>Log in</a> to leave comments on this blog!</p>
-			</div>
-			#{/if}
-
-		</div>
-	</div>
-	#{/list}
+	#{include  "components/displayposts.html" /} 
 
 </section>
