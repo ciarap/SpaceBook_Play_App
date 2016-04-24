@@ -12,3 +12,15 @@
 <section class="ui raised segment">
   <p> Signup or Log in to the Spacebook Service </p>
 </section>
+<section class="ui raised segment">
+  <h5 class="ui green inverted block header"> Visit User Blogs </h5>
+   <div class="ui list"> 
+  #{list items:users, as:'user'}
+  <div class="ui item">
+  #{if (user.posts.size()!=0)}
+  <a href="/publicblog/${user.id}">${user.firstName} ${user.lastName}'s Blog<i class="arrow right icon"></i></a>
+  #{/if}
+  </div>
+  #{/list} 
+  </div>
+</section>
