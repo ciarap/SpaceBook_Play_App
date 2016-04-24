@@ -1,10 +1,28 @@
 <section class="ui stacked segment">
   <h4 class="ui inverted blue block header">Published Posts</h4>
   #{ list items:user.posts, as:'post'}
-    <h5 class="ui inverted green block header"> ${post.title}</h5>
-    <p> 
-      ${post.content}:
-    </p>
+    <div class="ui raised segment">
+		<h5 class="ui inverted green block header">${post.title}</h5>
+		<p>${post.content}</p>
+		<div class="ui comments">
+			<h5 class="ui dividing header">Comments</h5>
+			#{ list items:post.comments, as:'comment'}
+			<div class="comment">
+				<div class="content">
+					<a href="/publicprofile/${comment.from.id}">${comment.from.firstName}</a>
+					<div class="metadata">
+						<div class="date">${comment.date}</div>
+					</div>
+					<div class="text">
+						<p>${comment.comment}</p>
+					</div>
+				</div>
+			</div>
+			#{/list}
+			
+		</div>
+		</div>
      <a href="/blog/deletepost/${post.id}" class="ui button red labeled icon"><i class="icon delete"></i> Delete </a>
   #{/list}
 </section> 
+
