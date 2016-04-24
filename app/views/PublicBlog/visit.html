@@ -20,6 +20,7 @@
 	<div class="ui raised segment">
 		<h5 class="ui inverted green block header">${post.title}</h5>
 		<p>${post.content}</p>
+
 		<div class="ui comments">
 			<h5 class="ui dividing header">Comments</h5>
 			#{ list items:post.comments, as:'comment'}
@@ -35,9 +36,17 @@
 				</div>
 			</div>
 			#{/list}
+			 #{if session.contains("logged_in_userid")}
 			<p>#{include "components/createBlogComment.html" /}</p>
+			#{/if}
+			#{if !session.contains("logged_in_userid")}
+			<div class="ui green floating message">
+  				<p><a href="/login"><i class="pointing right icon"></i>Log in</a> to leave comments on this blog!</p>
+			</div>
+			#{/if}
+
 		</div>
-		</div>
-		#{/list}
+	</div>
+	#{/list}
 
 </section>

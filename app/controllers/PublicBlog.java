@@ -23,10 +23,7 @@ public class PublicBlog extends Controller
   public static void newBlogComment(Long postid,Long id,String comment){
 	    User user = Accounts.getLoggedInUser();
 	    Date date= new Date();
-	    
-	    
 	    Post post=Post.findById(postid);
-	   
 	    post.postComment(user, comment, date.toString());
 	    post.save();
 	    Logger.info ("The post:"+postid+"user: "+user.firstName+"comment: "+comment+ "date: "+ date);
@@ -43,5 +40,7 @@ public class PublicBlog extends Controller
       renderBinary(picture.get());
     }
   }
+  
+ 
  
 }

@@ -39,4 +39,6 @@ public class Post extends Model
   {
     return title;
   } 
+  
+ 
 }
