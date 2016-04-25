@@ -1,17 +1,18 @@
 <section class="ui raised segment">
   <div class="ui list"> 
     #{list items:users, as:'user'}
-      <div class="ui item"> 
+      <div class="ui segment item"> 
       #{if user.isOnline()=="Online"}
         <i class="user green icon"></i>
        #{/if}
        #{else}
        <i class="user red icon"></i>
        #{/else}
-        <div class="content">
+        <div class="content ">
+        
           ${user.firstName} ${user.lastName} <a href="members/follow/${user.id}"> (follow) </a> 
           <br>&nbsp; Status: ${user.statusText} 
-          <br>&nbsp; Visit Blog <a href="publicblog/${user.id}"> <i class="arrow right icon"></i> </a>  
+          <br>&nbsp;<a href="publicblog/${user.id}">  Visit Blog  <i class="arrow right icon"></i> </a>  
         </div>
       </div>
     #{/list}

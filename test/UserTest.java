@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import controllers.EditProfile;
 import play.test.Fixtures;
 import play.test.UnitTest;
 
@@ -45,4 +46,12 @@ public class UserTest extends UnitTest
     User alice = User.findByEmail("alice@jones.com");
     assertNull (alice);
   }  
+  
+  @Test
+  public void testOnline(){
+	  User testUser = User.findByEmail("bob@jones.com");
+	  assertEquals("Offline",testUser.isOnline());
+	  testUser.online=true;
+	  assertEquals("Online",testUser.isOnline());
+  }
 }

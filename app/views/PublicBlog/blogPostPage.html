@@ -8,42 +8,66 @@
 	</div>
 </nav>
 #{/if}
+#{elseif currentUser==null}
+<nav class="ui inverted menu">
+	<div class="left menu">
+		<a class="item" href="/login">Back to Login Screen</a> 
+		 <a class="item" href="/publicblog/${user.id}">${user.firstName}'s
+			Blog</a>
+	</div>
+</nav>
+#{/elseif}
 #{else}
 <nav class="ui inverted menu">
 	<div class="left menu">
 		<a class="item" href="/home">Home</a> <a class="item"
 			href="/publicprofile/${user.id}">${user.firstName}'s Profile</a> <a
 			class="item" href="/publicblog/${user.id}">${user.firstName}'s
-			Blog Posts</a>
+			Blog</a>
 
 	</div>
 </nav>
 #{/else}
 
 <section>
-	<h5 class="ui inverted green block header">${post.title}</h5>
+<div class= "ui two column grid segment">
+<div class="ui column">
+	<h5 class="ui inverted green block header">Blog Post Title :  ${post.title}</h5>
 
 	<p>${post.content}</p>
-
-	<div class="ui comments">
-		<h5 class="ui dividing header">Comments</h5>
+	#{if currentUser== user} 
+		   <a href="/blog/deletepost/${post.id}" class="ui button red labeled icon"><i class="icon delete"></i> Delete </a>
+		   #{/if} 
+</div>
+	<div class="ui column comments stacked  segment">
+		
+        <h2 class="ui dividing header">
+         <i class="icon inverted circular blue comment"></i> Comments
+        </h2>
+        #{if post.comments.size()!=0}
 		#{ list items:post.comments, as:'comment'}
 		<div class="comment">
 			<div class="content">
 				<a href="/publicprofile/${comment.from.id}">${comment.from.firstName}</a>
 				<div class="metadata">
-					<div class="date">${comment.date}</div>
+					<div class=" date">${comment.date}</div>
 				</div>
 				<div class="text">
 					<p>${comment.comment}</p>
 				</div>
 			</div>
 		</div>
-		#{/list} 
+		#{/list}
+		#{/if}
+		#{else}
+		<div class="ui purple floating message">
+			<p>
+				There are no comments on this blog yet!
+			</p>
+		</div>
+		#{/else} 
 		#{if session.contains("logged_in_userid")} 
-		   #{if currentUser== user} 
-		   <a href="/blog/deletepost/${post.id}" class="ui button red labeled icon"><i class="icon delete"></i> Delete </a>
-		   #{/if} 
+		   
 		   #{if currentUser!= user}
              <p>#{include "components/createBlogComment.html" /}</p>
 		  #{/if} 
@@ -56,4 +80,7 @@
 			</p>
 		</div>
 		#{/if}
+		</div>
+		
+		</div>
 </section>

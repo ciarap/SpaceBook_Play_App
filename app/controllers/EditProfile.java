@@ -8,7 +8,7 @@ import models.*;
 public class EditProfile extends Controller
 {
   public static void change (String firstName,   String lastName, int    age, 
-                             String nationality, String email,    String password, String password2)
+                             String nationality, String email,    String password)
   {
     User user = Accounts.getLoggedInUser();
     user.firstName = firstName;

@@ -1,14 +1,26 @@
 #{extends 'main.html' /} #{set title:'Public Blog Page' /}
 
+#{if currentUser==null}
 <nav class="ui inverted menu">
 	<div class="left menu">
-		<a class="item" href="/home">Home</a> <a class="item"
-			href="/publicprofile/${user.id}">${user.firstName}'s Profile</a> <a
-			class="item" href="/publicblog/${user.id}">${user.firstName}'s
+		<a class="item" href="/login">Back to Login Screen</a>  <a
+			class="active item" href="/publicblog/${user.id}">${user.firstName}'s
 			Blog</a>
 
 	</div>
 </nav>
+#{/if}
+#{else}
+<nav class="ui inverted menu">
+	<div class="left menu">
+		<a class="item" href="/home">Home</a> 
+		<a class="item" href="/publicprofile/${user.id}">${user.firstName}'s Profile</a>
+		 <a class="active item" href="/publicblog/${user.id}">${user.firstName}'s
+			Blog</a>
+	</div>
+</nav>
+#{/else}
+
 
 <h1 class="ui inverted teal block header">${user.firstName}
 	${user.lastName}'s Blog Posts</h1>

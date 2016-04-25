@@ -3,30 +3,41 @@ User(lisa):
     lastName: Simpson
     email: lisa@simpson.com
     password: secret
+    nationality: American
+    age: 8
     
 User(marge):
     firstName: Marge
     lastName: Simpson
     email: marge@simpson.com
     password: secret
+    nationality: American
+    age: 40
+    
 
 User(homer):
     firstName: Homer
     lastName: Simpson
     email: homer@simpson.com
     password: secret
+    nationality: American
+    age: 43
 
 User(bart):
     firstName: Bart
     lastName: Simpson
     email: bart@simpson.com
     password: secret
+    nationality: American
+    age: 10
 
 User(maggie):
     firstName: Maggie
     lastName: Simpson
     email: maggie@simpson.com
     password: secret
+    nationality: American
+    age: 1
     
 Message(message1):
     from : marge
@@ -55,6 +66,8 @@ User(homer):
     lastName: Simpson
     email: homer@simpson.com
     password: secret
+    nationality: American
+    age: 43
     friendships:
             - friend1
             - friend2
@@ -64,6 +77,8 @@ User(marge):
     lastName: Simpson
     email: marge@simpson.com
     password: secret
+    nationality: American
+    age: 40
     friendships:
             - friend3
 

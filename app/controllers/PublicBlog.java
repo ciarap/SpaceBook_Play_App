@@ -5,6 +5,7 @@ import play.*;
 import play.db.jpa.Blob;
 import play.mvc.*;
 
+import java.time.ZonedDateTime;
 import java.util.*;
 
 import models.*;
@@ -15,18 +16,22 @@ public class PublicBlog extends Controller
 
   public static void visit(Long id)
   {
+	  User currentUser=null;
+	if (session.contains("logged_in_userid")){
+	  currentUser= Accounts.getLoggedInUser();
+    }
     User user = User.findById(id);
     Logger.info("Just visiting the blog for " + user.firstName + ' ' + user.lastName);
-    render(user);
+    render(user,currentUser);
   }
   
   public static void newBlogComment(Long postid,Long id,String comment){
 	    User user = Accounts.getLoggedInUser();
-	    Date date= new Date();
+	    ZonedDateTime date = ZonedDateTime.now();
 	    Post post=Post.findById(postid);
-	    post.postComment(user, comment, date.toString());
+	    post.postComment(user, comment, date.getDayOfMonth()+" "+date.getMonth()+" "+date.getYear());
 	    post.save();
-	    Logger.info ("The post:"+postid+"user: "+user.firstName+"comment: "+comment+ "date: "+ date);
+	    Logger.info ("The post:"+postid+"user: "+user.firstName+"comment: "+comment+ "date: "+ date.getDayOfMonth()+"/"+date.getMonth()+"/"+date.getYear());
 	    blogPostPage(postid,id);
   }
 
