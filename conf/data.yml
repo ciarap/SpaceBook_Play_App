@@ -82,7 +82,67 @@ User(marge):
     friendships:
             - friend3
 
-    
+Post(post1):
+    user: homer
+    title: My First Blog
+    content: Hi guys, this is my first blog!
 
+Post(post2):
+    user: homer
+    title: My Second Blog
+    content: Hey everybody, this is my second blog!
+  
+Post(post3):
+    user: marge
+    title: Cooking Blog
+    content: Hey everybody, I'm going to write a blog about cooking starting tomorrow!
 
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    password: secret
+    nationality: American
+    age: 40
+    friendships:
+            - friend3
+    posts:
+            - post3
+
+User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    password: secret
+    nationality: American
+    age: 43
+    friendships:
+            - friend1
+            - friend2
+    posts: 
+            - post1
+            - post2
     
+BlogComment(comment1):
+    from: marge
+    date: 25 APRIL 2016
+    comment: Cool Blog!
+    post: post1
+
+BlogComment(comment2):
+    from: lisa
+    date: 26 APRIL 2016
+    comment: I just read your blog Dad!
+    post: post1
+
+BlogComment(comment3):
+    from: bart
+    date: 24 APRIL 2016
+    comment: Nice blog post Dad!
+    post: post2
+    
+BlogComment(comment4):
+    from: homer
+    date: 23 APRIL 2016
+    comment: Very good Marge!
+    post: post3

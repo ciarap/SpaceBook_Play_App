@@ -33,8 +33,8 @@ public class BlogCommentTest extends UnitTest
     bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish");
     john = new User("john", "sullivan", "john@sullivan.com", "secret", 30, "irish");
     post1 = new Post("Post Title 1", "This is the first post content");
-    comment1=new BlogComment(john,"This is the first comment on post","25/4/16");
-    comment2=new BlogComment(john,"This is the second comment on post","23/4/16");
+    comment1=new BlogComment(post1,john,"This is the first comment on post","25/4/16");
+    comment2=new BlogComment(post1,john,"This is the second comment on post","23/4/16");
     bob.save();
     john.save();
     post1.save();
@@ -101,7 +101,7 @@ public class BlogCommentTest extends UnitTest
     post3.save();
     bob.posts.add(post3);
     bob.save();
-    BlogComment comment3= new BlogComment(john,"This is the third comment on post","20/4/16");
+    BlogComment comment3= new BlogComment(post3,john,"This is the third comment on post","20/4/16");
     comment3.save();
     post3.comments.add(comment3);
     post3.save();

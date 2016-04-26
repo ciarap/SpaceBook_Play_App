@@ -21,9 +21,12 @@ public class BlogComment extends Model
   public String comment;
   @ManyToOne
   public User from;
+  @ManyToOne
+  public Post post;
   
-  public BlogComment(User from,String comment,String date)
+  public BlogComment(Post post,User from,String comment,String date)
   {
+	this.post=post;
 	this.date=date;
     this.from=from;
     this.comment=comment;
