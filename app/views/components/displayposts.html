@@ -1,14 +1,28 @@
 <section class="ui stacked segment">
-  <h4 class="ui inverted blue block header">Published Posts</h4>
-  #{ list items:user.posts, as:'post'}
-    <div class="ui inverted tertiary green raised segment">
-		
+  <h4 class="ui inverted secondary ${user.colour} block header">Published Posts</h4>
+  #{if user.posts.size()!=0}
+  #{ list items:user.posts.reverse(), as:'post'}
+  <div class="ui two column stackable inverted tertiary teal middle aligned grid segment">
+    <div class="ui inverted tertiary teal raised  twelve wide column segment">
 		Post Title: ${post.title}
 		<br>
 		<a href="/blogPostPage/${post.id}/${user.id}">Read Blog Post <i class="arrow right icon"></i> </a>
-		
+		</div>
+		<div class="one wide stackable column">
+		#{if currentUser== user} 
+		   <a href="/blog/deletepost/${post.id}" class="ui button red labeled icon"><i class="icon delete"></i> Delete </a>
+		   #{/if} 
+		   </div>
 		
 		</div>
   #{/list}
+  #{/if}
+  #{else}
+  <div class="ui teal floating message">
+			<p>
+				<i class="info circle icon"></i> ${user.firstName} has not published any blogs yet!
+			</p>
+		</div>
+  #{/else}
 </section> 
 

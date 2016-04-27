@@ -11,9 +11,15 @@ public class PublicProfile extends Controller
 {
   public static void visit(Long id)
   {
+	User currentUser=Accounts.getLoggedInUser();
     User user = User.findById(id);
+    if (currentUser==user){
+    	Profile.index();
+    }
+    else{
     Logger.info("Just visiting the page for " + user.firstName + ' ' + user.lastName);
     render(user);
+    }
   }
 
   public static void sendMessage(Long id, String messageText)

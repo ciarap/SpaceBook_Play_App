@@ -5,6 +5,7 @@ User(lisa):
     password: secret
     nationality: American
     age: 8
+    colour: orange
     
 User(marge):
     firstName: Marge
@@ -13,6 +14,7 @@ User(marge):
     password: secret
     nationality: American
     age: 40
+    colour: purple
     
 
 User(homer):
@@ -22,6 +24,7 @@ User(homer):
     password: secret
     nationality: American
     age: 43
+    colour: red
 
 User(bart):
     firstName: Bart
@@ -30,6 +33,7 @@ User(bart):
     password: secret
     nationality: American
     age: 10
+    colour: blue
 
 User(maggie):
     firstName: Maggie
@@ -38,6 +42,7 @@ User(maggie):
     password: secret
     nationality: American
     age: 1
+    colour: green
     
 Message(message1):
     from : marge
@@ -68,6 +73,7 @@ User(homer):
     password: secret
     nationality: American
     age: 43
+    colour: red
     friendships:
             - friend1
             - friend2
@@ -79,6 +85,7 @@ User(marge):
     password: secret
     nationality: American
     age: 40
+    colour: purple
     friendships:
             - friend3
 
@@ -104,6 +111,7 @@ User(marge):
     password: secret
     nationality: American
     age: 40
+    colour: purple
     friendships:
             - friend3
     posts:
@@ -116,6 +124,7 @@ User(homer):
     password: secret
     nationality: American
     age: 43
+    colour: red
     friendships:
             - friend1
             - friend2
@@ -125,24 +134,24 @@ User(homer):
     
 BlogComment(comment1):
     from: marge
-    date: 25 APRIL 2016
+    date: 13:45, 25 APRIL 2016
     comment: Cool Blog!
     post: post1
 
 BlogComment(comment2):
     from: lisa
-    date: 26 APRIL 2016
+    date: 21:03, 26 APRIL 2016
     comment: I just read your blog Dad!
     post: post1
 
 BlogComment(comment3):
     from: bart
-    date: 24 APRIL 2016
+    date: 14:19, 24 APRIL 2016
     comment: Nice blog post Dad!
     post: post2
     
 BlogComment(comment4):
     from: homer
-    date: 23 APRIL 2016
+    date: 08:22, 23 APRIL 2016
     comment: Very good Marge!
     post: post3

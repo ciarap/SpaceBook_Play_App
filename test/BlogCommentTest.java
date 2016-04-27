@@ -30,8 +30,8 @@ public class BlogCommentTest extends UnitTest
   @Before
   public void setup()
   {
-    bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish");
-    john = new User("john", "sullivan", "john@sullivan.com", "secret", 30, "irish");
+    bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish","green");
+    john = new User("john", "sullivan", "john@sullivan.com", "secret", 30, "irish","blue");
     post1 = new Post("Post Title 1", "This is the first post content");
     comment1=new BlogComment(post1,john,"This is the first comment on post","25/4/16");
     comment2=new BlogComment(post1,john,"This is the second comment on post","23/4/16");

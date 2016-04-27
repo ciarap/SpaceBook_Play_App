@@ -29,7 +29,7 @@ public class PublicBlog extends Controller
 	    User user = Accounts.getLoggedInUser();
 	    ZonedDateTime date = ZonedDateTime.now();
 	    Post post=Post.findById(postid);
-	    post.postComment(post,user, comment, date.getDayOfMonth()+" "+date.getMonth()+" "+date.getYear());
+	    post.postComment(post,user, comment, date.getHour()+":"+date.getMinute()+", "+date.getDayOfMonth()+" "+date.getMonth()+" "+date.getYear());
 	    post.save();
 	    Logger.info ("The post:"+postid+"user: "+user.firstName+"comment: "+comment+ "date: "+ date.getDayOfMonth()+"/"+date.getMonth()+"/"+date.getYear());
 	    blogPostPage(postid,id);

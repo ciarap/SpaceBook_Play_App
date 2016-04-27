@@ -3,15 +3,24 @@
 
 <nav class="ui inverted menu">
   <div class="left menu">
-    <a class="item" href="/home">Home</a>
-    <a class="item" href="/publicprofile/${user.id}">${user.firstName}'s Profile</a>
-    <a class="item" href="/publicblog/${user.id}">${user.firstName}'s Blog</a>
+    <a class="item" href="/home"><i class="home icon"></i> Home</a>
+    <a class="active item" href="/publicprofile/${user.id}"><i class="user icon"></i>${user.firstName}'s Profile</a>
+    <a class="item" href="/publicblog/${user.id}"><i class="write icon"></i>${user.firstName}'s Blog</a>
     
   </div>
 </nav> 
 
-<h1 class="ui inverted teal block header" >${user.firstName} ${user.lastName}'s Profile</h1>
-<section class="ui  two column grid segment">
+<h1 style="font-family: 'Gloria Hallelujah', serif;" class="ui inverted ${user.colour} block header" >
+ #{if user.isOnline()=="Online"}
+        <i class="user green icon"></i>
+       #{/if}
+       #{else}
+       <i class="user red icon"></i>
+       #{/else}${user.firstName} ${user.lastName}'s Profile</h1>
+ #{if user.statusText!=null}
+<h5 style="font-family: 'Gloria Hallelujah', serif;"class="ui inverted ${user.colour} block header" >Status: ${user.statusText} </h5>
+#{/if}
+<section style="background-image: url('/accounts/getpicture3'); background-size: cover;" class="ui  two column grid segment">
   <div class="row">
     <div class="column">
       #{include "components/profilesummary.html" /} 

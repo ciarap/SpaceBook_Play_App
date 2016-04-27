@@ -14,7 +14,7 @@ public class Members extends Controller
     User user = Accounts.getLoggedInUser();
     List<User> users = User.findAll();
     users.remove(user);
-    render(users);
+    render(user,users);
   }
   
   public static void follow(Long id)

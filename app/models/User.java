@@ -14,6 +14,7 @@ import play.db.jpa.Blob;
 @Entity
 public class User extends Model
 {
+  
   public String firstName;
   public String lastName;
   public String email;
@@ -24,6 +25,7 @@ public class User extends Model
   public Blob   thumbnailPicture;
   public int    age;
   public String nationality;
+  public String colour;
 
   @OneToMany(mappedBy = "sourceUser")
   public List<Friendship> friendships = new ArrayList<Friendship>();
@@ -38,7 +40,7 @@ public class User extends Model
   public List<Post> posts = new ArrayList<Post>();
   
   
-  public User(String firstName, String lastName, String email, String password, int age, String nationality)
+  public User(String firstName, String lastName, String email, String password, int age, String nationality,String colour)
   {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -46,6 +48,7 @@ public class User extends Model
     this.password = password;
     this.age = age;
     this.nationality = nationality;
+    this.colour=colour;
    
   }
   

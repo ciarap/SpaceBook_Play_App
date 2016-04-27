@@ -6,6 +6,7 @@ import play.db.jpa.Model;
 @Entity
 public class Friendship extends Model
 {
+ 
   @ManyToOne()
   public User sourceUser;
 

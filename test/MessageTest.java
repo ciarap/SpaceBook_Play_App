@@ -21,10 +21,10 @@ public class MessageTest extends UnitTest
   @Before
   public void setup()
   {
-    mary = new User("mary", "colllins", "mary@collins.com", "secret", 20, "irish");
+    mary = new User("mary", "collins", "mary@collins.com", "secret", 20, "irish","blue");
     mary.save();
 
-    joan = new User("joan", "colllins", "joan@collins.com", "secret", 20, "irish");
+    joan = new User("joan", "collins", "joan@collins.com", "secret", 20, "irish","purple");
     joan.save();
   }
 

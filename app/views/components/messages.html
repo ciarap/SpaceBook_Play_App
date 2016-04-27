@@ -1,9 +1,10 @@
 <section class="ui stacked segment">
-  <h4 class="ui inverted blue block header">Messages</h4>
+  <h4 class="ui inverted ${user.colour} block header">Messages</h4>
   #{if user.inbox.size() > 0}
     <table class="ui table segment">
       <thead>
         <tr>
+          <th></th>
           <th>From</th>
           <th></th>
           <th>Online Status</th>
@@ -16,14 +17,14 @@
           <tr>
             <td>
               <div class="ui avatar image">
-               <img src="/profile/getpicture/${message.from.id}">
+               <img src="/profile/getthumbnail/${message.from.id}">
               </div>
             </td>
             <td>
                <a href="/publicprofile/${message.from.id}"> ${message.from.firstName}</a> 
-
              
              </td>
+             <td></td>
              <td>
              #{if message.from.isOnline()=="Online"}
               <i class="user green icon"></i>
@@ -33,12 +34,20 @@
               #{/else}
               ${message.from.isOnline()}
              </td>
-             <td> 
-                ${message.messageText}
+             <td></td>
+             <td style="font-family: 'Gloria Hallelujah', serif;"> 
+                 ${message.messageText}
               </td>
           </tr>
         #{/list}
       </tbody>
     </table>  
   #{/if} 
+  #{else}
+   <div class="ui teal floating message">
+			<p>
+				<i class="info circle icon"></i> You have no messages!
+			</p>
+		</div>
+  #{/else}
 </section>

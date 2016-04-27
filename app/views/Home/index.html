@@ -4,12 +4,12 @@
 <nav class="ui inverted menu">
   <header class="header item"> Spacebook </header>
   <div class="right menu">
-    <a class="active item" href="/home">Home</a></li>
-    <a class="item" href="/members">Members</a>
-    <a class="item" href="/profile">Profile</a>
-    <a class="item" href="/blog">Blog</a>
+    <a class="active item" href="/home"><i class="home icon"></i> Home</a></li>
+    <a class="item" href="/members"><i class="users icon"></i> Members </a>
+    <a class="item" href="/profile"><i class="user icon"></i>Profile</a>
+    <a class="item" href="/blog"><i class="write icon"></i> Blog</a>
     <div class="ui simple dropdown item">
-    Account Settings
+    <i class="setting icon"></i>Account Settings
     <i class="dropdown icon"></i>
     <div class="menu">
         <a class="item" href="/logout">Logout</a>
@@ -19,14 +19,11 @@
   </div>
 </nav> 
 
-<h1 class="ui inverted teal block header" >${user.firstName} ${user.lastName}</h1>
-<section class="ui two column grid segment">
+<h1 style="font-family: 'Gloria Hallelujah', serif;" class="ui inverted ${user.colour} block header" >${user.firstName} ${user.lastName}</h1>
+<section style="background-image: url('/accounts/getpicture3'); background-size: cover;"class="ui two column grid segment">
 
-  <div class="column ">
+  <div class="ui column ">
     <div class="ui row">
-      #{include "components/friends.html" /} 
-    </div>
-    <div class="row">
      <div class="ui medium image">
     <label class="ui ribbon label">Profile Image</label>
     <img src="/profile/getpicture/${user.id}">
@@ -44,10 +41,15 @@
       #{include "components/statusupdate.html" /}   
     </div>
     </div>
+    
     <div class="ui column">
+    <div class="ui row">
+      #{include "components/friends.html" /} 
+    </div>
+    <div class="ui row">
       #{include "components/messages.html" /} 
     </div>
-    
+    </div>
   
 </section>
 

@@ -12,6 +12,9 @@ GET    /login                                   Accounts.login
 GET    /logout                                  Accounts.logout
 POST   /authenticate                            Accounts.authenticate
 POST   /register                                Accounts.register
+GET     /accounts/getpicture               Accounts.getPicture
+GET     /accounts/getpicture2               Accounts.getPicture2
+GET     /accounts/getpicture3               Accounts.getPicture3
 
 # Home page
 GET     /home                                   Home.index

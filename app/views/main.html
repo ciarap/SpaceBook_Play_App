@@ -1,15 +1,29 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8">
     <title>#{get 'title' /}</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.10.2/semantic.css">
+    <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+    <style>
+      p{
+        font-family: 'Gloria Hallelujah', serif;
+      }
+    </style>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.10.2/semantic.min.js"></script>   
   </head>    
   <body>
-    <section class="ui inverted tertiary purple segment">
+   #{if session.contains("logged_in_userid")} 
+    <section class="ui inverted tertiary ${user.colour} segment" >
       #{doLayout /}
     </section>
+   #{/if}
+   #{else}
+    <section class="ui inverted teal segment" >
+      #{doLayout /}
+    </section>
+   #{/else}
   </body>
 </html>

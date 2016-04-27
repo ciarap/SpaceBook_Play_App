@@ -1,0 +1,16 @@
+ <h5 style="font-family: 'Gloria Hallelujah', serif;" class="ui green inverted block header"> Visit User Blogs </h5>
+   <div class="ui list"> 
+  #{list items:users, as:'user'}
+  <div class="ui item">
+  <div class="content">
+  #{if (user.posts.size()!=0)}
+  <div class="ui avatar image">
+       <img src="/profile/getthumbnail/${user.id}">
+   </div>
+  <a href="/publicblog/${user.id}">${user.firstName} ${user.lastName}'s Blog<i class="arrow right icon"></i></a>
+  #{/if}
+  </div>
+  </div>
+  #{/list}
+ 
+  </div>

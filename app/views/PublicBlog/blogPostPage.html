@@ -3,8 +3,8 @@
 #{if currentUser==user}
 <nav class="ui inverted menu">
 	<div class="left menu">
-		<a class="item" href="/home">Home</a> 
-		 <a class="item" href="/blog">Back to Blog HomePage</a>
+		<a class="item" href="/home"><i class="home icon"></i> Home</a> 
+		 <a class="item" href="/blog"><i class="write icon"></i> Back to Blog HomePage</a>
 	</div>
 </nav>
 #{/if}
@@ -12,7 +12,7 @@
 <nav class="ui inverted menu">
 	<div class="left menu">
 		<a class="item" href="/login">Back to Login Screen</a> 
-		 <a class="item" href="/publicblog/${user.id}">${user.firstName}'s
+		 <a class="item" href="/publicblog/${user.id}"><i class="write icon"></i> ${user.firstName}'s
 			Blog</a>
 	</div>
 </nav>
@@ -20,19 +20,18 @@
 #{else}
 <nav class="ui inverted menu">
 	<div class="left menu">
-		<a class="item" href="/home">Home</a> <a class="item"
-			href="/publicprofile/${user.id}">${user.firstName}'s Profile</a> <a
-			class="item" href="/publicblog/${user.id}">${user.firstName}'s
+		<a class="item" href="/home"><i class="home icon"></i> Home</a> <a class="item"
+			href="/publicprofile/${user.id}"><i class="user icon"></i>${user.firstName}'s Profile</a> <a
+			class="item" href="/publicblog/${user.id}"><i class="write icon"></i> ${user.firstName}'s
 			Blog</a>
 
 	</div>
 </nav>
 #{/else}
 
-<section>
-<div class= "ui two column grid segment">
+<section style="background-image: url('/accounts/getpicture3'); background-size: cover;" class= "ui two column grid segment">
 <div class="ui column">
-	<h5 class="ui inverted green block header">Title :  ${post.title}</h5>
+	<h5 class="ui inverted ${user.colour} block header">Title :  ${post.title}</h5>
 
 	<p>${post.content}</p>
 	#{if currentUser== user} 
@@ -47,6 +46,8 @@
         #{if post.comments.size()!=0}
 		#{ list items:post.comments, as:'comment'}
 		<div class="comment">
+		<div class="ui avatar image">
+		<img src="/profile/getthumbnail/${comment.from.id}"></div>
 			<div class="content">
 				<a href="/publicprofile/${comment.from.id}">${comment.from.firstName}</a>
 				<div class="metadata">
@@ -60,9 +61,9 @@
 		#{/list}
 		#{/if}
 		#{else}
-		<div class="ui purple floating message">
+		<div class="ui teal floating message">
 			<p>
-				There are no comments on this blog yet!
+				<i class="info circle icon"></i> There are no comments on this blog yet!
 			</p>
 		</div>
 		#{/else} 
@@ -82,5 +83,5 @@
 		#{/if}
 		</div>
 		
-		</div>
+	
 </section>

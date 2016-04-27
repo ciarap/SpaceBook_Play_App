@@ -9,7 +9,7 @@
   </div>
 </nav> 
 
-<section class="ui two column middle aligned grid raised form segment">
+<section  style="background-image: url('/accounts/getpicture3'); background-size: cover; height:100%;" class="ui two column middle aligned grid raised form segment">
   <div class="column">
 	  <form action="/register" method="POST">
 	    <div class="two fields">
@@ -39,6 +39,10 @@
 	      <label>Password</label>
 	      <input type="password" name="user.password">
 	    </div>
+	    <div class="field">
+	      <label>Colour (Please type red/green/blue/purple/orange)</label>
+	      <input placeholder="Colour"type="text" name="user.colour">
+	    </div>
 	    <button class="ui blue submit button">Submit</button>
 	  </form>
 	</div>
@@ -46,15 +50,12 @@
     <img src="/public/images/simpsons2.gif" class="ui large image">
   </div>
 </section>  
-<section class="ui raised segment">
-  <h5 class="ui green inverted block header"> Visit User Blogs </h5>
-   <div class="ui list"> 
-  #{list items:users, as:'user'}
-  <div class="ui item">
-  #{if (user.posts.size()!=0)}
-  <a href="/publicblog/${user.id}">${user.firstName} ${user.lastName}'s Blog<i class="arrow right icon"></i></a>
-  #{/if}
-  </div>
-  #{/list} 
-  </div>
+<section  style="background-image: url('/accounts/getpicture2'); background-size: cover; height:100%;"
+	class="ui raised segment">
+	<div class="ui two column grid "> 
+	<div class="right floated column">
+	#{include
+	"components/userBlogs.html" /}
+	</div>
+	</div>
 </section>

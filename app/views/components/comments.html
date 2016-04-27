@@ -6,21 +6,30 @@
     <div class="comment">
       #{if user.inbox.size() > 0}
         #{list items:user.inbox, as:'message'}
+        <div class="ui avatar image">
+		<img src="/profile/getthumbnail/${message.from.id}"></div>
           <div class="content">
-            <a class="author"> ${message.from.firstName} : </a>
-            <div class="text">
+            <a href="/publicprofile/${message.from.id}" class="author"> ${message.from.firstName} : </a>
+            <div style="font-family: 'Gloria Hallelujah', serif;" class="text">
               ${message.messageText}
             </div>
           </div>
         #{/list}
       #{/if}
+       #{else}
+   <div class="ui teal floating message">
+			<p>
+				<i class="info circle icon"></i> ${user.firstName} has no messages yet!
+			</p>
+		</div>
+  #{/else}
     </div>
     <form action="/publicprofile/sendmessage/${user.id}" class="ui reply form" method="post">
       <div class="field">
         <textarea name="messageText"></textarea>
       </div>
       <button  class="ui fluid blue labeled submit icon button">
-        <i class="icon edit"></i> Add Reply
+        <i class="icon edit"></i> Leave A Message For ${user.firstName}
       </button>
     </form>
   </div>

@@ -27,7 +27,7 @@ public class BlogTest extends UnitTest
   @Before
   public void setup()
   {
-    bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish");
+    bob   = new User("bob", "jones", "bob@jones.com", "secret", 20, "irish","green");
     post1 = new Post("Post Title 1", "This is the first post content");
     post2 = new Post("Post Title 2", "This is the second post content");
     bob.save();
