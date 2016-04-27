@@ -52,7 +52,6 @@ public class PublicBlog extends Controller
 	  if (session.contains("logged_in_userid")){
 	  currentUser= Accounts.getLoggedInUser();
 	  }
-	  Logger.info("ssss"+postid);
 	  User user = User.findById(id);
 	  Post post=Post.findById(postid);
 	  render(post,user,currentUser);
