@@ -13,7 +13,7 @@ import play.Logger;
 import play.db.jpa.Blob;
 
 @Entity
-
+@Table(name="Userrr") 
 public class User extends Model
 {
   
