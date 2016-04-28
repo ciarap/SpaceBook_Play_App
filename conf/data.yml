@@ -134,24 +134,24 @@ User(homer):
     
 BlogComment(comment1):
     from: marge
-    date: 13:45, 25 APRIL 2016
+    date: 15:20:59am, 25 April 2016
     comment: Cool Blog!
     post: post1
 
 BlogComment(comment2):
     from: lisa
-    date: 21:03, 26 APRIL 2016
+    date: 11:20:29am, 26 April 2016
     comment: I just read your blog Dad!
     post: post1
 
 BlogComment(comment3):
     from: bart
-    date: 14:19, 24 APRIL 2016
+    date: 13:20:59am, 27 April 2016
     comment: Nice blog post Dad!
     post: post2
     
 BlogComment(comment4):
     from: homer
-    date: 08:22, 23 APRIL 2016
+    date: 01:20:59am, 28 April 2016
     comment: Very good Marge!
     post: post3
